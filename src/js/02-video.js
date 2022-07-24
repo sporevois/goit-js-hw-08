@@ -24,8 +24,7 @@ function savesCurrentTimeToStorage({seconds}) {
     localStorage.setItem('videoplayer-current-time', parseInt(seconds))
 }
 const savedTime = localStorage.getItem('videoplayer-current-time')
-player.setCurrentTime(savedTime).then(function(seconds) {
-}).catch(function(error) {
+player.setCurrentTime(savedTime).catch(function(error) {
     switch (error.name) {
         case 'RangeError':
             break;
