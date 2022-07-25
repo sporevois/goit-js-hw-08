@@ -16,14 +16,14 @@
 import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
 
-const playerRef = document.querySelector('#vimeo-player')
+const playerRef = document.querySelector('#vimeo-player');
 const player = new Player(playerRef);
 
 player.on('timeupdate', throttle(savesCurrentTimeToStorage, 1000));
 function savesCurrentTimeToStorage({seconds}) {
-    localStorage.setItem('videoplayer-current-time', parseInt(seconds))
+    localStorage.setItem('videoplayer-current-time', parseInt(seconds));
 }
-const savedTime = localStorage.getItem('videoplayer-current-time')
+const savedTime = localStorage.getItem('videoplayer-current-time');
 player.setCurrentTime(savedTime).catch(function(error) {
     switch (error.name) {
         case 'RangeError':
