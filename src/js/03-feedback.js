@@ -31,8 +31,7 @@ if (localStorage.getItem('feedback-form-state') !== null) {
 }
 function consoleOnSbmit(event){
     event.preventDefault();
-    console.log('EMAIL:', emailRef.value)
-    console.log('MESSAGE:', messageRef.value)
+    console.log(JSON.parse(localStorage.getItem('feedback-form-state')))
     localStorage.removeItem('feedback-form-state')
     formRef.reset();
 }
